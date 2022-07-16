@@ -21,6 +21,7 @@ class DashBoardScreen extends GetView<DashBoardController> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Row(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Flexible(
             flex: 3,
@@ -36,10 +37,17 @@ class DashBoardScreen extends GetView<DashBoardController> {
               child: _buildTask(),
             ),
           ),
+          SizedBox(
+            height: MediaQuery.of(context).size.height,
+            child: const VerticalDivider(),
+          ),
           Flexible(
             flex: 4,
-            child: _buildAppointment(),
-          )
+            child: SingleChildScrollView(
+              controller: ScrollController(),
+              child: _buildAppointment(),
+            ),
+          ),
         ],
       ),
     );
