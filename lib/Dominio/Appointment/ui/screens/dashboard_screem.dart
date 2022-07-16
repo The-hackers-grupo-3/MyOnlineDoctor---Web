@@ -23,14 +23,14 @@ class DashBoardScreen extends GetView<DashBoardController> {
       body: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Flexible(
+          Expanded(
             flex: 3,
             child: SingleChildScrollView(
               controller: ScrollController(),
               child: _buildSideBar(),
             ),
           ),
-          Flexible(
+          Expanded(
             flex: 10,
             child: SingleChildScrollView(
               controller: ScrollController(),
@@ -41,7 +41,7 @@ class DashBoardScreen extends GetView<DashBoardController> {
             height: MediaQuery.of(context).size.height,
             child: const VerticalDivider(),
           ),
-          Flexible(
+          Expanded(
             flex: 4,
             child: SingleChildScrollView(
               controller: ScrollController(),
