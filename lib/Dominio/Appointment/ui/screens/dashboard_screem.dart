@@ -62,12 +62,12 @@ class DashBoardScreen extends GetView<DashBoardController> {
       padding: const EdgeInsets.symmetric(horizontal: 20.0),
       child: Column(children: [
         const SizedBox(height: 20.0),
-        Row(children: [
-          HeaderText(
-            DateFormat.yMMMd().format(DateTime.now()),
+        Row(
+            // ignore: prefer_const_literals_to_create_immutables
+            children: [
+              const Expanded(child: HeaderText("Solicitudes de citas")),
+            ],
           ),
-          const Spacer(),
-        ]),
         const SizedBox(height: 20.0),
         AppointmentInProgress(data: controller.appointmentRequest),
       ]),

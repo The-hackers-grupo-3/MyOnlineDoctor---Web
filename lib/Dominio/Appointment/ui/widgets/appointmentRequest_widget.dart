@@ -1,6 +1,9 @@
 import 'package:eva_icons_flutter/eva_icons_flutter.dart';
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 import 'package:telemedinaweb/Dominio/Appointment/model/appointment.dart';
+
+import 'headerDate_widget.dart';
 
 class CardAppointmentRequest extends StatelessWidget {
   const CardAppointmentRequest({
@@ -57,7 +60,7 @@ class CardAppointmentRequest extends StatelessWidget {
                   ),
                   const Spacer(flex: 1),
                   Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
                       _buildDate(),
                       SizedBox(
@@ -103,21 +106,33 @@ class CardAppointmentRequest extends StatelessWidget {
   }
 
   Widget _buildCompleteName() {
-    return Text(
-      "${data.namePatient}" + " " + "${data.lastNamePatient}",
-      style: TextStyle(
-        fontSize: 18,
-        fontWeight: FontWeight.w800,
-        color: onPrimary,
-        letterSpacing: 1,
+    return Container(
+      decoration: BoxDecoration(
+        color: onPrimary.withOpacity(.3),
+        borderRadius: BorderRadius.circular(10),
       ),
-      maxLines: 1,
-      overflow: TextOverflow.ellipsis,
+      padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
+      child: Text(
+        "${data.namePatient} ${data.lastNamePatient}",
+        style: TextStyle(
+          fontSize: 18,
+          fontWeight: FontWeight.w800,
+          color: onPrimary,
+          letterSpacing: 1,
+        ),
+        maxLines: 1,
+        overflow: TextOverflow.ellipsis,
+      ),
     );
   }
 
   Widget _buildDescription() {
-    return Expanded(
+    return Container(
+      decoration: BoxDecoration(
+        color: onPrimary.withOpacity(.3),
+        borderRadius: BorderRadius.circular(10),
+      ),
+      padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
       child: Text(
         data.descriptionAppointment,
         style: TextStyle(
@@ -136,7 +151,7 @@ class CardAppointmentRequest extends StatelessWidget {
     return _IconLabel(
       color: onPrimary,
       iconData: EvaIcons.calendarOutline,
-      label: '${data.dateAppointment}',
+      label: DateFormat('d MMMM').format(data.dateAppointment),
     );
   }
 

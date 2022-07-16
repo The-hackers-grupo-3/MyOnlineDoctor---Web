@@ -2,7 +2,6 @@ import 'package:eva_icons_flutter/eva_icons_flutter.dart';
 import 'package:flutter/material.dart';
 import 'package:telemedinaweb/Dominio/Appointment/model/appointment.dart';
 
-
 class ListScheduleAppointment extends StatelessWidget {
   const ListScheduleAppointment(
       {required this.data,
@@ -33,7 +32,7 @@ class ListScheduleAppointment extends StatelessWidget {
               _buildCompleteName(),
               const SizedBox(height: 5),
               _buildDescription()
-              ],
+            ],
           ),
         ),
         const SizedBox(width: 10),
@@ -50,7 +49,7 @@ class ListScheduleAppointment extends StatelessWidget {
     );
   }
 
-  Widget _buildHours(){
+  Widget _buildHours() {
     return Text(
       data.hourAppointment,
       style: const TextStyle(
@@ -89,7 +88,7 @@ class ListScheduleAppointment extends StatelessWidget {
 
   Widget _buildCompleteName() {
     return Text(
-      data.namePatient + data.lastNamePatient,
+      "${data.namePatient} ${data.lastNamePatient}",
       maxLines: 1,
       style: const TextStyle(
         fontSize: 12,
@@ -103,7 +102,7 @@ class ListScheduleAppointment extends StatelessWidget {
     return IconButton(
       onPressed: () {},
       icon: const Icon(EvaIcons.phoneCallOutline),
-      tooltip: "Call", 
+      tooltip: "Call",
       color: Colors.green,
       hoverColor: Colors.transparent,
     );
@@ -113,11 +112,9 @@ class ListScheduleAppointment extends StatelessWidget {
     return IconButton(
       onPressed: () {},
       icon: const Icon(EvaIcons.closeCircleOutline),
-      tooltip: "Cancel", 
+      tooltip: "Cancel",
       color: Colors.red,
-      hoverColor: Colors.transparent,    
+      hoverColor: Colors.transparent,
     );
   }
-
 }
-
